@@ -12,11 +12,9 @@ defmodule Params.Def do
         Code.eval_quoted(block, [], __ENV__)
       end
 
-      Module.eval_quoted(__MODULE__, quote do
-         def unquote(name)(params, options \\ []) do
-           unquote(module_name).from(params, options)
-         end
-      end)
+      def unquote(name)(params, options \\ []) do
+        unquote(module_name).from(params, options)
+      end
     end
   end
 
@@ -29,11 +27,9 @@ defmodule Params.Def do
         Params.Def.defschema(schema)
       end
 
-      Module.eval_quoted(__MODULE__, quote do
-         def unquote(name)(params) do
-           unquote(module_name).from(params)
-         end
-      end)
+      def unquote(name)(params) do
+        unquote(module_name).from(params)
+      end
     end
   end
 
